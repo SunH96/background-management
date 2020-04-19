@@ -1,6 +1,12 @@
 <template>
   <div>
-    <h3>产品中心</h3>
+    <nav class="navbar">
+      <ul>
+        <li>所有产品</li>
+        <li>图片管理</li>
+        <li>快速录入</li>
+      </ul>
+    </nav>
   </div>
 </template>
 
@@ -15,4 +21,8 @@ export default {
   methods: {}
 };
 </script>
-<style lang='stylus' scoped></style>
+<style lang='stylus' scoped>
+.navbar {
+  
+}
+</style>

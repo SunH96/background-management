@@ -21,7 +21,7 @@
     </nav>
     <!-- /.navbar -->
 
-    <aside class="main-sidebar sidebar-dark-self elevation-4">
+    <aside class="main-sidebar sidebar-dark-self">
       <div class="logobox">
         <div class="logo"></div>
       </div>
@@ -87,17 +87,38 @@ export default {
 
   methods: {
     go(item) {
-      
       if (this.curName != item.menuName) {
         this.curName = item.menuName;
         this.$router.push({ path: "/index" + item.url });
       }
-      
     }
   }
 };
 </script>
 <style lang='stylus' scoped>
+@media (min-width: 768px) {
+  body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-footer, body:not(.sidebar-mini-md) .main-header {
+    transition: margin-left 0.3s ease-in-out;
+    margin-left: 150px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .content-wrapper::before, body:not(.sidebar-mini-md) .main-footer, body:not(.sidebar-mini-md) .main-footer::before, body:not(.sidebar-mini-md) .main-header, body:not(.sidebar-mini-md) .main-header::before {
+    margin-left: 0;
+  }
+
+  .main-sidebar, .main-sidebar::before {
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+    width: 150px;
+  }
+}
+
+.main-sidebar, .main-sidebar::before {
+    transition: margin-left .3s ease-in-out,width .3s ease-in-out;
+    width: 150px;
+}
+
 .logobox {
   height: 90px;
   padding: 10px 0;
@@ -138,21 +159,26 @@ export default {
   background-color: #3479d7;
 
   .sidebar {
-    margin-top: 0!important;
+    margin-top: 0 !important;
   }
 
   .nav-item {
     color: #fdfffb;
-    font-size: 20px;
-    padding: 10px 0;
+    font-size: 16px;
+    padding: 12px 0;
     cursor: pointer;
     text-align: center;
     user-select: none;
+    border-bottom 1px solid #5aebff
   }
 
   .nav-item:hover, .cur {
     color: #5aebff;
     background-color: #2267c1;
   }
+}
+
+.content-wrapper {
+  background-color: #f4f4f4;
 }
 </style>

@@ -5,7 +5,7 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [
-    { path: '/', redirect: '/index' },
+    { path: '/', redirect: '/login' },
     { path: '/login', name: 'Login', component: () => import('@/pages/login.vue') },
     { path: '/index', name: 'Index', component: () => import('@/pages/index.vue'), children:[
       { path: '', redirect: 'content' },
