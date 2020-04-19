@@ -82,7 +82,11 @@ export default {
   },
 
   mounted() {
-    console.log(this.menu);
+    let curUrl = this.$route.matched[1].path.substring(6)
+    this.menu.forEach(item => {
+      item.url == curUrl && (this.curName = item.menuName)
+    })
+    console.log(this.curName)
   },
 
   methods: {
@@ -169,7 +173,7 @@ export default {
     cursor: pointer;
     text-align: center;
     user-select: none;
-    border-bottom 1px solid #5aebff
+    border-bottom 1px solid #388CFF
   }
 
   .nav-item:hover, .cur {
